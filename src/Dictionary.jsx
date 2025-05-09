@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-//require('dotenv').config()
+import './Dictionary.css'
 
 const Dictionary = () => {
     const [word, setWord] = useState("");
@@ -24,11 +24,17 @@ const Dictionary = () => {
     }, [])
 
   return (
-    <div>
-      <h1>Welcome to dictionary</h1>
-      <input className="wordInput" value={word} onChange={(e) => setWord(e.target.value)}/>
-      <button onClick={findMeaning}>Find meaning</button>
-      <p>{meaning}</p>
+    <div className="container">
+        <div className="headers">
+            <h1>Welcome to Dictionary!</h1>
+            <h3>What word do you want the definition for?</h3>
+        </div>
+        <div className="inputArea">
+            <input className="wordInput" value={word} onChange={(e) => setWord(e.target.value)} placeholder="Enter word"/>
+            <button className="btn" onClick={findMeaning}>Find meaning</button>
+        </div>
+        <p className="meaning">{meaning}</p>
+        
     </div>
   )
 }
